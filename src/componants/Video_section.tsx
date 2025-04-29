@@ -84,7 +84,7 @@ console.log(Sticked)
 }} onDuration={(e) => {
   console.log(e)
   setFullTime(e)
-}} style={{width:"100% !important"}}  width={"100%"} className={`object-cover max-md:h-[220px] max-md:w-[90%] import video_media `} light={thumb} playIcon={<></>} url='https://www.youtube.com/watch?v=LXb3EKWsInQ' />
+}} style={{width:"100% !important"}}  width={"100%"} className={`object-cover max-md:h-[220px] max-md:w-[90%] import video_media `} light={thumb} playIcon={<></>} url='https://youtu.be/DB6cE6TRh84?si=DY2ZlEn9-IIR5seH' />
     </div>
      </div>
 
