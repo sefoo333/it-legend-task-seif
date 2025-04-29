@@ -133,7 +133,7 @@ if (transtoParse && transtoParse.length > 1){
     <div className="solution flex justify-start gap-2    rounded-md" style={{boxShadow:"0 0 20px 10px rgba(68,91,195,.1411764706)"}}>
     <div className="check border-r-[1px] w-[50px] flex items-center   justify-center border-r-[rgba(160,160,160,.3019607843)]">
     <input type="checkbox" className=' size-5 my-0.5 bg-transparent rounded border-gray-300 shadow-sm'  name="" id="sol_one" onChange={(e) =>{
-      if(question == exam.length){
+     if(question >= 0){
         window.localStorage.setItem("timeExam" , timer)
       }
         setSolutions([...solutions,{
