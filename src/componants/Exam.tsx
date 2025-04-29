@@ -16,7 +16,7 @@ useEffect(() => {
   if (mins <= 0){
     clearInterval(0)
   }
- return () =>  {setInterval(() => {
+setInterval(() => {
     seconds--
   
     if (seconds <= 0 && mins >= 1){
@@ -27,7 +27,7 @@ useEffect(() => {
     setTimer(`${mins}:${seconds}`)
     
   },1000)
-}
+
   
 },[])
 
