@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+.video_button{
+    @apply flex justify-center items-center text-xl border-[2px] border-[#f5f9fa] text-black rounded-full w-[50px] h-[50px] duration-500 cursor-pointer hover:bg-[#ecedee]
+}
+
+.user_range{
+    width: 35px;
+    height: 35px;
+    font-size: 13px;
+    border: 2px solid #ccc;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
