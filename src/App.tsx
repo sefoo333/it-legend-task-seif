@@ -5,7 +5,6 @@ import Comments from './componants/Comments';
 import Matrials from './componants/Matrials';
 import Topics from './componants/Topics';
 import { useEffect } from 'react';
-import video from "./assets/video.mp4"
 
 function App() {
  
@@ -23,7 +22,7 @@ useEffect(() => {
     id:2
   },
 {
-  video:video,
+  video:"./assets/video.mp4",
   id:3
 }
 ]))
