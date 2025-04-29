@@ -73,7 +73,7 @@ onReady={(e) =>{
 }} controls={true}  onProgress={(e:{playedSeconds:number|any}) => {
   const view_range = ((Math.floor(e.playedSeconds) / FullTime) * 100).toFixed()
   setTime(e.playedSeconds)
-  if(+view_range > 30){
+  if(+view_range >= 80){
     setDone(true)
   }
 console.log(Sticked)
