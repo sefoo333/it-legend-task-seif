@@ -5,6 +5,7 @@ import Comments from './componants/Comments';
 import Matrials from './componants/Matrials';
 import Topics from './componants/Topics';
 import { useEffect } from 'react';
+import video from "./assets/video.mp4"
 
 function App() {
  
@@ -18,8 +19,14 @@ useEffect(() => {
     video:"https://youtu.be/DB6cE6TRh84?si=DY2ZlEn9-IIR5seH",
     id:1
   },{
-    video:""
-  }]))
+    video:"https://www.facebook.com/share/v/15s9M3qamx/",
+    id:2
+  },
+{
+  video:video,
+  id:3
+}
+]))
 },[])
   
 

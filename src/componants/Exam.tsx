@@ -16,7 +16,7 @@ useEffect(() => {
   if (mins <= 0){
     clearInterval(0)
   }
- return () =>  {setInterval(() => {
+  setInterval(() => {
     seconds--
   
     if (seconds <= 0 && mins >= 1){
@@ -27,7 +27,7 @@ useEffect(() => {
     setTimer(`${mins}:${seconds}`)
     
   },1000)
-}
+
   
 },[])
 
@@ -66,7 +66,7 @@ const data_exam:any = localStorage.getItem("exam_data")
 const time_exam:any = localStorage.getItem("timeExam")
 const transtoParse = JSON.parse(data_exam);
 
-if (transtoParse && transtoParse[0] != undefined){
+if (transtoParse && transtoParse.length > 1){
     setSolutions(transtoParse)
     setQuestion(transtoParse[transtoParse.length - 1].id)
     seconds = time_exam.split(":")[1]
@@ -74,9 +74,9 @@ if (transtoParse && transtoParse[0] != undefined){
     setTimer(`${mins}:${seconds}`)
     console.log(timer)
   } else {
-    localStorage.setItem("exam_data" , JSON.stringify([]))
+    localStorage.setItem("exam_data" , JSON.stringify([{}]))
   }
-  if (transtoParse.length >= 4){
+  if (transtoParse && transtoParse.length >= 4){
     localStorage.setItem("exam_data" , JSON.stringify([]))
   }
 },[])
