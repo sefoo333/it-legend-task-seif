@@ -74,7 +74,7 @@ if (transtoParse && transtoParse.length > 1){
     setTimer(`${mins}:${seconds}`)
     console.log(timer)
   } else {
-    localStorage.setItem("exam_data" , JSON.stringify([{}]))
+    localStorage.setItem("exam_data" , JSON.stringify([]))
   }
   if (transtoParse && transtoParse.length >= 4){
     localStorage.setItem("exam_data" , JSON.stringify([]))
