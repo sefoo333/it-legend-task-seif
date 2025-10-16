@@ -3,7 +3,7 @@ import { LuMessageCircleQuestion } from "react-icons/lu";
 import { BiComment } from "react-icons/bi";
 import { TbUserQuestion } from "react-icons/tb";
 import thumb from "../assets/thumb.png"
-
+import video from "../assets/video.mp4"
 import style from "../modules/App.module.css";
 import ReactPlayer from 'react-player';
 import {createContext, useEffect, useState } from "react";
@@ -16,24 +16,13 @@ export const Data2:any = createContext(false)
 function Video_section() {
 
 
-    const [videos,setVideos] = useState([]);
-
   const [FullTime , setFullTime] = useState(0)
   const [video_time , setTime] = useState(0)
   const [Watched , setDone] = useState(false)
   const [Sticked , setSticked] = useState(false)
   const [open2,setOpen2]:any = useState(false)
 
-useEffect(() => {
-  const getVideos = () => {
-    const getFromLocal = localStorage.getItem("videos");
-    if (getFromLocal){
-      const ToParse = JSON.parse(getFromLocal);
-      setVideos(ToParse)
-    }
-  }
-  getVideos()
-},[])
+
 
   useEffect(() => {
     const getData:string | any = localStorage.getItem("video_state");
@@ -56,6 +45,23 @@ setSticked(false)
 
 
 
+  useEffect(() => {
+document.addEventListener("fullscreenchange", async () => {
+     const element = document.fullscreenElement;
+    if (element) {
+      const orientation = (screen.orientation || (screen as any).orientation) as any;
+      if (orientation && orientation.lock) {
+        try {
+          await orientation.lock('landscape');
+          console.log("Rotated to landscape 🔄");
+        } catch (err) {
+          console.warn("Orientation lock not supported:", err);
+        }
+      }
+    }
+
+});
+  },[])
  
 
 
@@ -90,23 +96,22 @@ const getLastTime = (e:{seekTo:(e:number , type?: "seconds" | "fraction") => voi
      duration-500 transition-all
     
      ${Sticked
-      ? 'relative max-md:fixed max-md:left-[0px] max-md:bottom-[20px] max-md:w-[70%] max-md:h-36  max-md:z-50'
+      ? 'relative max-md:fixed max-md:left-[0px] max-md:top-0 max-md:w-full max-md:h-36  max-md:z-50'
       : 'relative px-[2px]'
   }
 `}>
        {Watched ? (
          <IoIosCheckmarkCircle size={35}  className={`text-green-500 bg-white rounded-full right-[30px]  max-md:left-[16px] top-[40px] absolute  ${Sticked ? "max-md:top-[15px]" : "max-md:top-[50px]"} max-md:top-[22px] ${Sticked ? "max-md:right-[80px]" : "max-md:right-[33px]"}`} />
        ):null}
-    <div className={`  w-full ${Sticked ? "max-md:h-full max-md:w-[300px]" : "max-md:h-85"}`}>
+    <div className={`  w-full ${Sticked ? "max-md:h-75 max-sm:h-65 max-md:w-full " : "max-md:h-85"}`}>
     <ReactPlayer 
-
 
 
 
 onReady={(e) =>getLastTime(e)} controls={true}  onProgress={(e:{playedSeconds:number}) => CalcTime(e.playedSeconds)} onDuration={(e) => {
   console.log(e)
   setFullTime(e)
-}} style={{width:"100% !important"}}  width={"100%"} className={`object-cover max-md:!h-full max-md:w-[90%] !h-[600px] `} light={thumb} playIcon={<></>} url={videos[0] || "https://www.youtube.com/watch?v=y-NAlOnFC8Q"} />
+}} style={{width:"100% !important"}}  width={"100%"} className={`object-cover max-md:!h-full max-md:w-[90%] !h-[600px] `} light={thumb} playIcon={<></>} url={video} />
     </div>
      </div>
 
