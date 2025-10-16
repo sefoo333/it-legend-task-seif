@@ -1,7 +1,6 @@
 import { useContext } from 'react'
 import { IoMdClose } from 'react-icons/io'
 import { Data2 } from './Video_section'
-import image1 from "../assets/image.png"
 
 function Leaderboard() {
         const {setOpen2}:any = useContext(Data2)
