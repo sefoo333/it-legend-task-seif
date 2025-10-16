@@ -11,8 +11,8 @@ export const Data:any = createContext(null)
 
 function Topics() {
 
-const [pdf,setOpenPDF]:any = useState(false)
-const [exam,setOpenExam]:any = useState(false)
+const [pdf,setOpenPDF] = useState<boolean>(false)
+const [exam,setOpenExam] = useState<boolean>(false)
     const Mytopics = [{
         Title:"Introduction",
         isOpen:false,
