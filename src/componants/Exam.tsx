@@ -1,5 +1,4 @@
-import { act, useContext, useEffect, useState } from "react";
-import { CiAlarmOn } from "react-icons/ci"
+import {  useContext, useEffect, useState } from "react";
 import { IoIosArrowBack } from "react-icons/io"
 import { Data } from "./Topics";
 import { IoClose } from "react-icons/io5";
