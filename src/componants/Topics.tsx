@@ -2,7 +2,7 @@ import { TiArrowSortedDown } from "react-icons/ti";
 import style from "../modules/App.module.css";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { MdOutlineLock } from "react-icons/md";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import PDF from "./PDF";
 import Exam from "./Exam";
 
