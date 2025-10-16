@@ -5,8 +5,9 @@
 }
 
 .user_range{
-    width: 35px;
-    height: 35px;
+    /* width: 35px;
+    height: 35px; */
+    padding: 5px;
     font-size: 13px;
     border: 2px solid #ccc;
     background-color: white;

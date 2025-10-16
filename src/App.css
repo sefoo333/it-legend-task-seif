@@ -13,37 +13,31 @@ body{
 
 @theme {
   --shadow-box:"0px 0px 20px black";
-  --color-t:"black"
 }
 
 
-.video_media{
+/* .video_media{
   height: 600px !important;
-}
+} */
 
-@media (max-width:1151px){
+/* @media (max-width:1151px){
   .video_media{
     width: 90%;
     height: 450px !important;
   }
-}
+} */
 
-@media (max-width:951px){
+/* @media (max-width:951px){
   .video_media{
     height: 300px !important;
     margin: 0 auto;
     width: 95% ;
     border-radius: 10px;
   }
-  .video_sticked{
-    height: 150px ;
-    width: 69% ;
-    border-radius: 10px;
-  }
   .import{
     width: 100% !important;
     height: 100% !important;
   }
-}
+} */
 
 

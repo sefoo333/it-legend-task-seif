@@ -4,6 +4,7 @@ import imag2 from "../assets/image2.jpg"
 import image3 from "../assets/image3.png"
 import { useEffect, useState } from "react"
 function Comments() {
+  const [saved,setSaved] = useState("")
 
   const comments = [{
     Name:"Seifeldeen Ali",
@@ -20,7 +21,6 @@ function Comments() {
 ]
 
 
-const [saved,setSaved] = useState("")
 
 const saveComment = (e:string) => {
   if (e !== ""){

@@ -2,7 +2,7 @@ import { TiArrowSortedDown } from "react-icons/ti";
 import style from "../modules/App.module.css";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { MdOutlineLock } from "react-icons/md";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import PDF from "./PDF";
 import Exam from "./Exam";
 
@@ -11,7 +11,8 @@ export const Data:any = createContext(null)
 
 function Topics() {
 
-
+const [pdf,setOpenPDF]:any = useState(false)
+const [exam,setOpenExam]:any = useState(false)
     const Mytopics = [{
         Title:"Introduction",
         isOpen:false,
@@ -85,28 +86,29 @@ function Topics() {
 },
 ]
 
-const [pdf,setOpenPDF]:any = useState(false)
-const [exam,setOpenExam]:any = useState(false)
+
 
 
   return (
     <>
 <div className="sidebar text-black max-md:mt-15 max-md:my-0 max-md:mx-auto  max-md:w-[90%]">
         <h1 className='text-3xl font-semibold  '>Topics for This Course  </h1>
+        {/* video range */}
         <div className="video_range my-[20px]">
-          <div className="wrapper  w-2/3 flex justify-end">
-          <div className={`${style.user_range}`}>
+          <div className="wrapper   flex justify-end  w-[65%]" >
+          <div className={`${style.user_range}`} >
             <span>You</span>
             <TiArrowSortedDown className='absolute text-[#ccc] bottom-[-13px]' />
           </div>
           </div>
         <div className="mt-4 overflow-hidden rounded-full bg-gray-200">
 
-      <div className="h-2 w-2/3 rounded-full bg-[#41b69d]"></div>
+      <div className={`h-2 rounded-full bg-[#41b69d] w-[65%]`} ></div>
     </div>
-    <span className="w-2/3 flex justify-end mt-[13px]">63%</span>
+    <span className=" flex justify-end mt-[13px]  w-[65%]" >65%</span>
         </div>
-       
+
+       {/* topics  */}
         <details
     className="group topic mt-[45px] p-[20px] border-[1px] border-[#ccc] [&_summary::-webkit-details-marker]:hidden"
     open
@@ -129,7 +131,7 @@ const [exam,setOpenExam]:any = useState(false)
 
     <div className="items">
           {Mytopics.slice(0,6).map((e,a) => (
-             <div key={a} className="item flex justify-between items-center py-[16px] border-b-[1px] border-b-[#ccc] cursor-pointer" onClick={() => {
+             <div key={a} className={`item flex justify-between items-center py-[16px]  ${a !== Mytopics.slice(0,6).length - 1 ? "border-b-[1px] border-b-[#ccc]" : ""} cursor-pointer`} onClick={() => {
                 if (e.Title == "Embedding PHP in HTML"){
                     setOpenPDF(true)
                 } else if (e.testMode){
@@ -178,7 +180,7 @@ const [exam,setOpenExam]:any = useState(false)
 
          <div className="items">
          {Mytopics.slice(6,Mytopics.length).map((e,a) => (
-             <div key={a} className="item flex justify-between items-center py-[16px] cursor-pointer border-b-[1px] border-b-[#ccc] gap-7" onClick={() => {
+             <div key={a} className={`item flex justify-between items-center py-[16px] cursor-pointer ${a !== Mytopics.length - 7 ? "border-b-[1px] border-b-[#ccc]" : ""} gap-7`} onClick={() => {
                 if (e.testMode){
                   setOpenExam(true)
                 }

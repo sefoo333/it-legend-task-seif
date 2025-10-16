@@ -4,10 +4,10 @@ import Video_section from './componants/Video_section';
 import Comments from './componants/Comments';
 import Matrials from './componants/Matrials';
 import Topics from './componants/Topics';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
 
 function App() {
- 
 useEffect(() => {
   const data:any = localStorage.getItem("exam_data")
   if (!JSON.parse(data)){
@@ -39,13 +39,14 @@ useEffect(() => {
       <h1 className='font-semibold text-5xl mt-[30px] mb-[5px] max-xl:text-4xl'>Starting SEO as your Home</h1>
       </div>
         </div>
-      <div className="grid my-0 mx-auto grid-cols-3 max-xl:grid-cols-1 bg-white px-[250px] max-2xl:px-[60px] max-xl:px-[40px] w-fit max-xl:justify-items-center  max-xl:gap-0 gap-[50px]  py-[30px]" >
+      <div className="bg-white">
+        <div className="container grid my-0 mx-auto grid-cols-3 max-xl:grid-cols-1   w-fit max-xl:justify-items-center  max-xl:gap-0 gap-[50px]  py-[30px]" >
       <div className="content col-span-2">
         <div className="container w-full flex justify-center flex-col max-xl:w-[100vw]" style={{margin:"0 auto"}}>
-      <Video_section />
+      <Video_section  />
       <Matrials />
       <div className='xl:hidden'>
-      <Topics />
+      <Topics   />
       </div>
       <Comments />
      
@@ -53,7 +54,7 @@ useEffect(() => {
       
         </div>
         <div className='max-xl:hidden'>
-        <Topics />
+        <Topics  />
         </div>
 
       
@@ -61,6 +62,7 @@ useEffect(() => {
       
 
       
+      </div>
       </div>
       </div>
     </>

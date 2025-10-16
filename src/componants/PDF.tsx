@@ -6,7 +6,7 @@ function PDF() {
     const {setOpenPDF}:any = useContext(Data)
   return (
     <div className="window fixed z-50 left-0 top-0 w-full h-full bg-[#292929b4]">
-    <div className="popup p-[30px] bg-white rounded-xl   h-fit w-[30%] max-md:w-[90%]  absolute left-1/2 top-1/2 translate-[-50%] z-9">
+    <div className="popup p-[30px] bg-white rounded-xl   h-fit w-[550px] max-md:w-[80%]  absolute left-1/2 top-1/2 translate-[-50%] z-9">
        <div className="close flex justify-end cursor-pointer" onClick={() => setOpenPDF((e:boolean) => !e)}>
          <IoMdClose size={25} className='text-[#a3a3a3]' />
        </div>

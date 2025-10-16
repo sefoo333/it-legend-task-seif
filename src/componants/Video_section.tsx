@@ -12,6 +12,7 @@ import Leaderboard from "./Leaderboard";
 
 export const Data2:any = createContext(false)
 
+// (progress: number) => void
 function Video_section() {
 
 
@@ -19,6 +20,8 @@ function Video_section() {
   const [FullTime , setFullTime] = useState(0)
   const [video_time , setTime] = useState(0)
   const [Watched , setDone] = useState(false)
+  const [Sticked , setSticked] = useState(false)
+  const [open2,setOpen2]:any = useState(false)
 
 
 
@@ -31,7 +34,6 @@ if(transtoParse){
   },[localStorage.length])
 
   
-  const [Sticked , setSticked] = useState(false)
 
 
   window.onscroll = function () {
@@ -42,7 +44,33 @@ setSticked(false)
 }
   }
 
-  const [open2,setOpen2]:any = useState(false)
+
+
+ 
+
+
+  const CalcTime = (playedSeconds:number , ) => {
+
+  const view_range = ((Math.floor(playedSeconds) / FullTime) * 100).toFixed()
+  setTime(playedSeconds)
+  if(+view_range > 80){
+    setDone(true)
+  }
+console.log(Sticked)
+  window.localStorage.setItem("video_state",JSON.stringify({
+    video_time_all:FullTime,
+    Video_state:Math.floor(video_time) ,
+    Watched:Watched,
+  }))
+} 
+
+
+const getLastTime = (e:{seekTo:(e:number , type?: "seconds" | "fraction") => void}) => {
+   const time:string | any = localStorage.getItem("video_state");
+      if (JSON.parse(time).Video_state){
+        e.seekTo(JSON.parse(time).Video_state, "seconds");
+      }
+}
 
   return (
   <>
@@ -52,39 +80,23 @@ setSticked(false)
      duration-500 transition-all
     
      ${Sticked
-      ? 'relative max-md:fixed max-md:left-[0px] max-md:bottom-[20px] max-md:w-full max-md:h-36  max-md:z-50'
-      : 'relative'
+      ? 'relative max-md:fixed max-md:left-[0px] max-md:bottom-[20px] max-md:w-[70%] max-md:h-36  max-md:z-50'
+      : 'relative px-[2px]'
   }
 `}>
        {Watched ? (
          <IoIosCheckmarkCircle size={35}  className={`text-green-500 bg-white rounded-full right-[30px]  max-md:left-[16px] top-[40px] absolute  ${Sticked ? "max-md:top-[15px]" : "max-md:top-[50px]"} max-md:top-[22px] ${Sticked ? "max-md:right-[80px]" : "max-md:right-[33px]"}`} />
        ):null}
-    <div className={`t  ${Sticked ? 'video_sticked' : 'video_media'}`}>
+    <div className={`  w-full ${Sticked ? "max-md:h-full max-md:w-[300px]" : "max-md:h-85"}`}>
     <ReactPlayer 
 
 
 
 
-onReady={(e) =>{
-  const time:string | any = localStorage.getItem("video_state");
-      if (JSON.parse(time).Video_state){
-        e.seekTo(JSON.parse(time).Video_state, 'seconds');
-      }
-}} controls={true}  onProgress={(e:{playedSeconds:number|any}) => {
-  const view_range = ((Math.floor(e.playedSeconds) / FullTime) * 100).toFixed()
-  setTime(e.playedSeconds)
-  if(+view_range >= 80){
-    setDone(true)
-  }
-console.log(Sticked)
-  window.localStorage.setItem("video_state",JSON.stringify({
-    Video_state:Math.floor(video_time) ,
-    Watched:Watched,
-  }))
-}} onDuration={(e) => {
+onReady={(e) =>getLastTime(e)} controls={true}  onProgress={(e:{playedSeconds:number}) => CalcTime(e.playedSeconds)} onDuration={(e) => {
   console.log(e)
   setFullTime(e)
-}} style={{width:"100% !important"}}  width={"100%"} className={`object-cover max-md:h-[220px] max-md:w-[90%] import video_media `} light={thumb} playIcon={<></>} url='https://youtu.be/DB6cE6TRh84?si=DY2ZlEn9-IIR5seH' />
+}} style={{width:"100% !important"}}  width={"100%"} className={`object-cover max-md:!h-full max-md:w-[90%] !h-[600px] `} light={thumb} playIcon={<></>} url='https://youtu.be/DB6cE6TRh84?si=DY2ZlEn9-IIR5seH' />
     </div>
      </div>
 

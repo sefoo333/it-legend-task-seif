@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { IoMdClose } from 'react-icons/io'
 import { Data2 } from './Video_section'
+import image1 from "../assets/image.png"
 
 function Leaderboard() {
         const {setOpen2}:any = useContext(Data2)
@@ -11,7 +12,7 @@ function Leaderboard() {
   return (
      <div className="window fixed z-50 left-0 top-0 w-full h-full bg-[#292929b4]">
 
-       <div className="loadboard p-[30px] bg-white text-black rounded-xl   h-fit w-[25%] max-md:w-[90%]  absolute left-1/2 top-1/2 translate-[-50%] z-9" >
+       <div className="loadboard p-[30px] bg-white text-black rounded-xl   h-fit w-[500px] max-md:w-[90%]  absolute left-1/2 top-1/2 translate-[-50%] z-9" >
         <div className="close flex justify-end cursor-pointer" onClick={() => {
         setOpen2((e:boolean) => !e)
        }}>
@@ -27,8 +28,8 @@ function Leaderboard() {
     💪
   </div>
 </div>
-<div className="leaderboard mt-16 flex flex-col gap-5">
-  <div className="square w-full h-15  rounded-xl" style={{boxShadow:"0 0 20px 10px rgba(68,91,195,.1411764706)"}}></div>
+<div className="leaderboard mt-14 flex flex-col gap-5">
+    <div className="square w-full h-15  rounded-xl" style={{boxShadow:"0 0 20px 10px rgba(68,91,195,.1411764706)"}}></div>
   <div className="square w-full h-15  rounded-xl" style={{boxShadow:"0 0 20px 10px rgba(68,91,195,.1411764706)"}}></div>
   <div className="square w-full h-15 rounded-xl " style={{boxShadow:"0 0 20px 10px rgba(68,91,195,.1411764706)"}}></div>
   <div className="square w-full h-15 rounded-xl " style={{boxShadow:"0 0 20px 10px rgba(68,91,195,.1411764706)"}}></div>
