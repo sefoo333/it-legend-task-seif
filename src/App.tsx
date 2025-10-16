@@ -4,7 +4,7 @@ import Video_section from './componants/Video_section';
 import Comments from './componants/Comments';
 import Matrials from './componants/Matrials';
 import Topics from './componants/Topics';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 
 function App() {
