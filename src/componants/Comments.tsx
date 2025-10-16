@@ -50,7 +50,7 @@ useEffect(() => {
       <span className='text-[17px] font-medium text-gray-500'>Oct 10,2021</span>
       </div>
           <p className='w-full text-[#939393]'>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua incididunt ut labore et dolore magna aliqua .</p>
         </div>
          </div>
         </div>

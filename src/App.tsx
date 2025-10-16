@@ -15,7 +15,7 @@ useEffect(() => {
   }
 
   localStorage.setItem("videos" , JSON.stringify([{
-    video:"https://youtu.be/DB6cE6TRh84?si=DY2ZlEn9-IIR5seH",
+    video:"https://www.youtube.com/watch?v=y-NAlOnFC8Q",
     id:1
   },{
     video:"https://www.facebook.com/share/v/15s9M3qamx/",
@@ -27,6 +27,8 @@ useEffect(() => {
 }
 ]))
 },[])
+
+
   
 
   return (

@@ -16,14 +16,24 @@ export const Data2:any = createContext(false)
 function Video_section() {
 
 
-  
+    const [videos,setVideos] = useState([]);
+
   const [FullTime , setFullTime] = useState(0)
   const [video_time , setTime] = useState(0)
   const [Watched , setDone] = useState(false)
   const [Sticked , setSticked] = useState(false)
   const [open2,setOpen2]:any = useState(false)
 
-
+useEffect(() => {
+  const getVideos = () => {
+    const getFromLocal = localStorage.getItem("videos");
+    if (getFromLocal){
+      const ToParse = JSON.parse(getFromLocal);
+      setVideos(ToParse)
+    }
+  }
+  getVideos()
+},[])
 
   useEffect(() => {
     const getData:string | any = localStorage.getItem("video_state");
@@ -96,7 +106,7 @@ const getLastTime = (e:{seekTo:(e:number , type?: "seconds" | "fraction") => voi
 onReady={(e) =>getLastTime(e)} controls={true}  onProgress={(e:{playedSeconds:number}) => CalcTime(e.playedSeconds)} onDuration={(e) => {
   console.log(e)
   setFullTime(e)
-}} style={{width:"100% !important"}}  width={"100%"} className={`object-cover max-md:!h-full max-md:w-[90%] !h-[600px] `} light={thumb} playIcon={<></>} url='https://youtu.be/DB6cE6TRh84?si=DY2ZlEn9-IIR5seH' />
+}} style={{width:"100% !important"}}  width={"100%"} className={`object-cover max-md:!h-full max-md:w-[90%] !h-[600px] `} light={thumb} playIcon={<></>} url={videos[0] || "https://www.youtube.com/watch?v=y-NAlOnFC8Q"} />
     </div>
      </div>
 
